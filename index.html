@@ -29,6 +29,7 @@
 
 	<!-- RESOLUCIÓN PEDRO -->
 	
+	<!--
     <div class="container" id="app">	
 		<h1>{{d.collection.title}}</h1>
 		<br/>
@@ -51,6 +52,31 @@
 	<br/>
 	<br/>
 	<br/>
+	-->
+	
+    <div class="container" id="app">	
+		<h1>{{d.collection.title}}</h1>
+		<br/>
+		<br/>
+		<div class="row">
+			<div class="card col-md-4" v-for="item in d.collection.items" style="width: 40rem;">
+				<img class="card-img-top" v-bind:src="damepropiedad(item, 'image')" alt="Movie image">
+				<div class="card-body">					
+					<h5 class="card-title" >{{damepropiedad(item, 'name')}} </h5>	
+					<button class="btn btn-primary btn-block" v-on:click="buttonclick">Show</button>
+					<ul>
+						<li v-for="elemento in item.data" v-if="elemento.name != 'name' && elemento.name != 'image' ">
+							<span style="font-weight: bold;"> {{elemento.prompt}}</span> : {{elemento.value}} <br/> <br/>
+						</li>						
+					</ul>
+					<a class="card-link" v-bind:href="item.href">Ver en Wikipedia</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br/>
+	<br/>
+	<br/>	
 
     <script src="js/script.js"></script>
   </body>
